@@ -77,8 +77,7 @@
                     <button onclick="openOrder('Birthday Cradle Box')" class="w-full py-4 border border-black/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Select Package</button>
                 </div>
                 <div class="package-card p-10 bg-[#FFFBEB]">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-amber-600">Customer Favorite</span>
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-700 mb-6 mt-1">2. Silver Birthday Cradle Box</h3>
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-700 mb-6">2. Silver Birthday Cradle Box</h3>
                     <ul class="text-[12px] space-y-3 opacity-70 mb-8 flex-grow">
                         <li>• 6 cupcakes</li>
                         <li>• 6-inch cake</li>
@@ -173,7 +172,7 @@
                         <li>• Small chops (50 pcs)</li>
                         <li>• Fried or Jollof rice tray</li>
                         <li>• 12 cookies</li>
-                        <li>• 10 small Banana bread</li>
+                        <li>• 10 small banana bread</li>
                         <li>• 12 juice pack</li>
                     </ul>
                     <button onclick="openOrder('Classic Party Food')" class="w-full py-4 border border-black/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
@@ -181,7 +180,7 @@
                 <div class="package-card p-10 bg-slate-50">
                     <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6">2. Premium Event (20–50 guests)</h3>
                     <ul class="text-[12px] space-y-3 opacity-70 mb-8 flex-grow">
-                        <li>• large cakes</li>
+                        <li>• Large cakes</li>
                         <li>• 24 cupcakes</li>
                         <li>• Small chops (100pcs)</li>
                         <li>• Fried rice + jollof rice trays</li>
@@ -197,7 +196,7 @@
                 <div class="package-card p-10 bg-zinc-900 text-white">
                     <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">3. Executive Luxury (50–100 guests)</h3>
                     <ul class="text-[12px] space-y-3 opacity-80 mb-8 flex-grow">
-                        <li>• large cakes</li>
+                        <li>• Large cakes</li>
                         <li>• 50 cupcakes</li>
                         <li>• Small chops (200pcs)</li>
                         <li>• Fried rice + jollof + sides</li>
@@ -235,7 +234,7 @@
     <section id="masterclass" class="max-w-7xl mx-auto px-6 py-32 border-t border-black/5">
         <div class="grid md:grid-cols-2 gap-20 items-center">
             <div class="h-80 md:h-[500px] rounded-[48px] overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1556910111-71323716fb7a?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover grayscale" alt="Culinary Class">
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover grayscale" alt="Culinary Class">
             </div>
             <div>
                 <h2 class="luxury-font text-4xl md:text-5xl mb-8 uppercase tracking-widest">The Masterclass</h2>
@@ -267,7 +266,7 @@
                 <div class="ios-item"><span>Puff Puff Mix</span></div>
                 <div class="ios-item"><span>Pepper Soup</span></div>
                 <div class="ios-item"><span>Soups (Banga, Egusi, Oha, etc)</span></div>
-                <div class="ios-item"><span>Coconut Rice</span></div>
+                <div class="ios-item)<span>Coconut Rice</span></div>
                 <div class="ios-item"><span>Red Velvet Cake</span></div>
                 <div class="ios-item"><span>Smoothie / Yogurt</span></div>
                 <div class="ios-item"><span>Chocolates / Pringles</span></div>
@@ -294,9 +293,9 @@
             <div class="p-10">
                 <form id="whatsappForm" class="space-y-4">
                     <input type="text" id="orderPackage" readonly class="w-full bg-transparent border-b border-black/10 py-2 text-[10px] font-bold uppercase tracking-widest outline-none">
-                    <input type="tel" id="userPhone" placeholder="Phone Number" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none">
-                    <input type="text" id="userAddress" placeholder="Delivery Address" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none">
-                    <textarea id="userNotes" placeholder="Special notes (e.g., Add Zobo)?" class="w-full bg-transparent border-b border-black/10 py-2 text-sm h-16 outline-none resize-none"></textarea>
+                    <input type="tel" id="userPhone" placeholder="Phone Number" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none focus:border-black">
+                    <input type="text" id="userAddress" placeholder="Delivery Address" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none focus:border-black">
+                    <textarea id="userNotes" placeholder="Special notes (e.g., Add Zobo)?" class="w-full bg-transparent border-b border-black/10 py-2 text-sm h-16 outline-none resize-none focus:border-black"></textarea>
                     <button type="submit" class="w-full bg-black text-white py-5 rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-xl mt-4">Send to WhatsApp</button>
                 </form>
             </div>
@@ -304,7 +303,7 @@
     </div>
 
     <script>
-        const CHEF_PHONE = "2349068937038"; // Swap for real phone
+        const CHEF_PHONE = "2349068937038"; // Replace with actual phone number
 
         function handleReveal() {
             const section = document.getElementById('collections-section');
