@@ -47,7 +47,7 @@
         <div class="relative h-[65vh] rounded-[40px] overflow-hidden shadow-2xl">
             <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070" class="w-full h-full object-cover" alt="Safra Kitchen">
             <div class="absolute inset-0 bg-black/20 flex flex-col items-center justify-center">
-                <a href="#collections" class="bg-white text-black px-12 py-5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-xl">Order A Collection</a>
+                <a href="#collections" class="bg-white text-black px-12 py-5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-xl">Explore Collections</a>
             </div>
         </div>
     </section>
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="package-card p-10 rounded-[35px] border-2 border-amber-400/30 relative">
-                    <span class="absolute -top-4 left-10 bg-amber-400 text-white text-[8px] px-4 py-1.5 rounded-full font-bold uppercase tracking-widest">Best Seller ⭐</span>
+                    <span class="absolute -top-4 left-10 bg-amber-400 text-white text-[8px] px-4 py-1.5 rounded-full font-bold uppercase tracking-widest">Customer Favorite ⭐</span>
                     <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-600 mb-8 mt-2">2. Silver Birthday Cradle</h3>
                     <ul class="text-[13px] space-y-4 opacity-70 mb-10">
                         <li>• 6 Cupcakes & 6-inch Cake</li>
@@ -164,7 +164,7 @@
                         <li>• 12 Cookies & 10 Mini Banana Bread</li>
                         <li>• 12 Juice packs</li>
                     </ul>
-                    <button onclick="openOrder('Classic Party Food Package')" class="w-full py-4 border border-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire Scale</button>
+                    <button onclick="openOrder('Classic Party Food Package')" class="w-full py-4 border border-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire for Event</button>
                 </div>
 
                 <div class="package-card p-10 rounded-[35px]">
@@ -177,7 +177,7 @@
                         <li>• 10 Dessert Cups & 24 Juices/Wine</li>
                         <li>• Branded Packaging & Parfait</li>
                     </ul>
-                    <button onclick="openOrder('Premium Event Catering Package')" class="w-full py-4 border border-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire Scale</button>
+                    <button onclick="openOrder('Premium Event Catering Package')" class="w-full py-4 border border-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire for Event</button>
                 </div>
 
                 <div class="package-card p-10 rounded-[35px] bg-slate-900 text-white">
@@ -189,7 +189,7 @@
                         <li>• 30 Dessert cups, 50 Donuts, 50 Cookies</li>
                         <li>• Meat Pie & Setup Decoration</li>
                     </ul>
-                    <button onclick="openOrder('Executive Corporate Luxury Package')" class="w-full py-4 bg-white text-slate-900 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire Scale</button>
+                    <button onclick="openOrder('Executive Corporate Luxury Package')" class="w-full py-4 bg-white text-slate-900 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire for Event</button>
                 </div>
             </div>
         </div>
@@ -206,8 +206,8 @@
                 </div>
             </div>
             <div class="order-1 md:order-2">
-                <div class="aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000">
-                    <img src="IMG_0466.jpg" class="w-full h-full object-cover" alt="Chef Safra Adibua">
+                <div class="aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden shadow-2xl transition-all duration-1000">
+                    <img src="IMG_0466.JPG.jpeg" class="w-full h-full object-cover" alt="Chef Safra Adibua">
                 </div>
             </div>
         </div>
@@ -279,7 +279,7 @@
         <div class="bg-white w-full max-w-md rounded-[40px] overflow-hidden shadow-2xl transition-all">
             <div class="bg-[#FAF9F6] p-8 border-b border-black/5 flex items-center gap-5">
                 <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
-                    <img src="IMG_0466.jpg" class="w-full h-full object-cover" alt="Safra">
+                    <img src="IMG_0466.JPG.jpeg" class="w-full h-full object-cover" alt="Safra">
                 </div>
                 <div>
                     <h4 class="text-[12px] font-bold uppercase tracking-tighter">Chef Safra Adibua</h4>
@@ -302,7 +302,7 @@
     </div>
 
     <script>
-        // REPLACE THIS WITH YOUR NUMBER
+        // REPLACE WITH THE WHATSAPP NUMBER
         const CHEF_PHONE = "2349068937038"; 
 
         function openTab(tabId, themeClass) {
@@ -320,7 +320,7 @@
         }
 
         function openOrder(packageName) {
-            document.getElementById('orderPackage').value = "Package: " + packageName;
+            document.getElementById('orderPackage').value = packageName;
             document.getElementById('orderModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
