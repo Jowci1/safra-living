@@ -10,9 +10,8 @@
         :root { --bg-color: #FAF9F6; }
         body { background-color: var(--bg-color); color: #1A1A1A; font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
         .luxury-font { font-family: 'Playfair Display', serif; }
-        .glass-nav { background: rgba(250, 249, 246, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .glass-nav { background: rgba(250, 249, 246, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.03); }
         
-        /* Interactive Reveal Logic */
         #collections-section { display: none; opacity: 0; }
         .reveal-active { display: block !important; animation: slideUp 0.8s ease forwards; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -21,14 +20,10 @@
         .tab-content.active { display: block; animation: iosFade 0.6s ease-out; }
         @keyframes iosFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .package-card { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 32px; transition: all 0.4s ease; }
-        .package-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
-
-        /* iOS List Style for Add-Ons */
-        .ios-item { border-bottom: 0.5px solid rgba(0,0,0,0.06); padding: 14px 0; font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
-        .ios-item:last-child { border-bottom: none; }
-
-        /* Success Overlay */
+        .package-card { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 32px; height: 100%; display: flex; flex-direction: column; }
+        
+        .ios-item { border-bottom: 0.5px solid rgba(0,0,0,0.06); padding: 12px 0; font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; display: flex; justify-content: space-between; }
+        
         #successState { display: none; opacity: 0; transition: opacity 0.4s ease; }
         .success-active { display: flex !important; opacity: 1 !important; }
     </style>
@@ -50,49 +45,169 @@
 
     <section class="max-w-7xl mx-auto px-6 mb-32">
         <div class="relative h-[65vh] rounded-[48px] overflow-hidden shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1546241072-48010ad28c2c?q=80&w=1974" class="w-full h-full object-cover" alt="Signature Dish">
-            <div class="absolute inset-0 bg-black/10 flex flex-col items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover" alt="Gourmet Dish">
+            <div class="absolute inset-0 bg-black/20 flex flex-col items-center justify-center">
                 <button onclick="handleReveal()" id="revealBtn" class="bg-white text-black px-14 py-5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-2xl">Explore Collections</button>
             </div>
         </div>
     </section>
 
     <section id="collections-section" class="max-w-7xl mx-auto px-6 py-24 border-t border-black/5">
-        <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-24 pb-10">
-            <button onclick="openTab('birthday')" class="tab-link luxury-font italic text-2xl md:text-3xl opacity-30 hover:opacity-100 transition-all">The Golden Birthday</button>
-            <button onclick="openTab('romance')" class="tab-link luxury-font italic text-2xl md:text-3xl opacity-30 hover:opacity-100 transition-all">The Love Flame</button>
-            <button onclick="openTab('corporate')" class="tab-link luxury-font italic text-2xl md:text-3xl opacity-30 hover:opacity-100 transition-all">The Elite Event</button>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-12 mb-20 pb-10">
+            <button onclick="openTab('birthday')" class="tab-link luxury-font italic text-xl md:text-2xl opacity-30 hover:opacity-100 transition-all">Golden Birthday</button>
+            <button onclick="openTab('romance')" class="tab-link luxury-font italic text-xl md:text-2xl opacity-30 hover:opacity-100 transition-all">Love Flame</button>
+            <button onclick="openTab('corporate')" class="tab-link luxury-font italic text-xl md:text-2xl opacity-30 hover:opacity-100 transition-all">Elite Corporate</button>
         </div>
 
         <div id="birthday" class="tab-content active">
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="package-card p-10">
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-800 mb-8">1. Birthday Cradle Box</h3>
-                    <ul class="text-[12px] space-y-4 opacity-60 mb-10">
-                        <li>• 4 Cupcakes & 5-inch Cake</li>
-                        <li>• Small Chops (10pcs)</li>
-                        <li>• 2 Donuts & Parfait</li>
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-800 mb-6">1. Birthday Cradle Box</h3>
+                    <ul class="text-[12px] space-y-3 opacity-60 mb-8 flex-grow">
+                        <li>• 4 cupcakes</li>
+                        <li>• 5-inch cake</li>
+                        <li>• Small chops (spring rolls, samosa, puff puff – 10pcs)</li>
+                        <li>• 2 donuts</li>
+                        <li>• 1 parfait cup</li>
+                        <li>• 1 premium juice</li>
+                        <li>• Chocolate bars</li>
+                        <li>• Birthday card</li>
+                        <li>• Mini money bouquet (Optional upgrade)</li>
                     </ul>
                     <button onclick="openOrder('Birthday Cradle Box')" class="w-full py-4 border border-black/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Select Package</button>
                 </div>
-                <div class="package-card p-10 bg-[#FFFBEB] border-amber-100">
+                <div class="package-card p-10 bg-[#FFFBEB]">
                     <span class="text-[9px] font-bold uppercase tracking-widest text-amber-600">Customer Favorite</span>
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-700 mb-8 mt-2">2. Silver Birthday Cradle</h3>
-                    <ul class="text-[12px] space-y-4 opacity-70 mb-10">
-                        <li>• 6 Cupcakes & 6-inch Cake</li>
-                        <li>• Small Chops (20pcs) & Fried Rice</li>
-                        <li>• Parfait, Cookies & Juice</li>
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-700 mb-6 mt-1">2. Silver Birthday Cradle Box</h3>
+                    <ul class="text-[12px] space-y-3 opacity-70 mb-8 flex-grow">
+                        <li>• 6 cupcakes</li>
+                        <li>• 6-inch cake</li>
+                        <li>• Small chops (20pcs)</li>
+                        <li>• Fried rice with chicken (1 pack)</li>
+                        <li>• 2 parfait cups</li>
+                        <li>• 2 premium juices</li>
+                        <li>• Cookies</li>
+                        <li>• Chocolate box</li>
+                        <li>• Birthday balloons</li>
+                        <li>• Money bouquets</li>
                     </ul>
-                    <button onclick="openOrder('Silver Birthday Cradle')" class="w-full py-4 bg-amber-600 text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-lg">Select Package</button>
+                    <button onclick="openOrder('Silver Birthday Cradle Box')" class="w-full py-4 bg-amber-600 text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-lg">Select Package</button>
                 </div>
                 <div class="package-card p-10 bg-black text-white">
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-400 mb-8">3. Gold Luxury Birthday</h3>
-                    <ul class="text-[12px] space-y-4 opacity-80 mb-10">
-                        <li>• 8 Cupcakes & 2-Step Cake</li>
-                        <li>• Small Chops Platter (30pcs+)</li>
-                        <li>• Luxury Meal, Wine & Money Buffet</li>
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-400 mb-6">3. Gold Luxury Birthday</h3>
+                    <ul class="text-[12px] space-y-3 opacity-80 mb-8 flex-grow">
+                        <li>• 8 cupcakes</li>
+                        <li>• 7/8 inch cake 2step</li>
+                        <li>• Small chops platter (30pcs+)</li>
+                        <li>• Fried rice + chicken + plantain</li>
+                        <li>• 2 dessert jars</li>
+                        <li>• parfait</li>
+                        <li>• Premium juice or wine</li>
+                        <li>• Imported chocolates</li>
+                        <li>• Fresh flowers</li>
+                        <li>• Large money bouquet/buffet</li>
+                        <li>• Luxury decoration</li>
                     </ul>
                     <button onclick="openOrder('Gold Luxury Birthday')" class="w-full py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="romance" class="tab-content">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="package-card p-10">
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-red-800 mb-6">1. Sweetheart Romance Tray</h3>
+                    <ul class="text-[12px] space-y-3 opacity-60 mb-8 flex-grow">
+                        <li>• 4 cupcakes</li>
+                        <li>• Mini cake</li>
+                        <li>• Small chops (10–15pcs)</li>
+                        <li>• 1 parfait</li>
+                        <li>• Chocolate strawberries/brownies</li>
+                        <li>• Premium juice</li>
+                        <li>• Red Rose</li>
+                        <li>• Love message card</li>
+                        <li>• Small money bouquet</li>
+                    </ul>
+                    <button onclick="openOrder('Sweetheart Romance Tray')" class="w-full py-4 border border-red-800/20 text-red-900 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
+                </div>
+                <div class="package-card p-10 bg-red-50">
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-red-700 mb-6">2. Lovers Delight Package</h3>
+                    <ul class="text-[12px] space-y-3 opacity-70 mb-8 flex-grow">
+                        <li>• 6 cupcakes</li>
+                        <li>• 6-inch cake</li>
+                        <li>• Small chops (20pcs)</li>
+                        <li>• Fried/Jollof rice + chicken + salad</li>
+                        <li>• 2 parfait cups</li>
+                        <li>• Premium juice or wine</li>
+                        <li>• Chocolate box</li>
+                        <li>• Teddy bear</li>
+                        <li>• Scented candle</li>
+                        <li>• Medium money bouquet</li>
+                    </ul>
+                    <button onclick="openOrder('Lovers Delight Package')" class="w-full py-4 bg-red-600 text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
+                </div>
+                <div class="package-card p-10 bg-black text-white">
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-red-400 mb-6">3. Royal Romance Luxury</h3>
+                    <ul class="text-[12px] space-y-3 opacity-80 mb-8 flex-grow">
+                        <li>• 8 cupcakes</li>
+                        <li>• 7-inch cake</li>
+                        <li>• Premium wine or exotic juice</li>
+                        <li>• Chocolate strawberries</li>
+                        <li>• Fresh flowers</li>
+                        <li>• Teddy bear</li>
+                        <li>• Large money buffet</li>
+                        <li>• Tray decoration</li>
+                    </ul>
+                    <button onclick="openOrder('Royal Romance Luxury')" class="w-full py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="corporate" class="tab-content">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="package-card p-10">
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6">1. Classic Party Food (10–20 guests)</h3>
+                    <ul class="text-[12px] space-y-3 opacity-60 mb-8 flex-grow">
+                        <li>• 1 medium cake</li>
+                        <li>• 12 cupcakes</li>
+                        <li>• Small chops (50 pcs)</li>
+                        <li>• Fried or Jollof rice tray</li>
+                        <li>• 12 cookies</li>
+                        <li>• 10 small Banana bread</li>
+                        <li>• 12 juice pack</li>
+                    </ul>
+                    <button onclick="openOrder('Classic Party Food')" class="w-full py-4 border border-black/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
+                </div>
+                <div class="package-card p-10 bg-slate-50">
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6">2. Premium Event (20–50 guests)</h3>
+                    <ul class="text-[12px] space-y-3 opacity-70 mb-8 flex-grow">
+                        <li>• large cakes</li>
+                        <li>• 24 cupcakes</li>
+                        <li>• Small chops (100pcs)</li>
+                        <li>• Fried rice + jollof rice trays</li>
+                        <li>• Chicken (20pcs)</li>
+                        <li>• 24 donuts</li>
+                        <li>• Dessert cups (10)</li>
+                        <li>• 24 juices or wine</li>
+                        <li>• Branded packaging</li>
+                        <li>• Parfait</li>
+                    </ul>
+                    <button onclick="openOrder('Premium Event Package')" class="w-full py-4 bg-black text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
+                </div>
+                <div class="package-card p-10 bg-zinc-900 text-white">
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">3. Executive Luxury (50–100 guests)</h3>
+                    <ul class="text-[12px] space-y-3 opacity-80 mb-8 flex-grow">
+                        <li>• large cakes</li>
+                        <li>• 50 cupcakes</li>
+                        <li>• Small chops (200pcs)</li>
+                        <li>• Fried rice + jollof + sides</li>
+                        <li>• Chicken (50pcs)</li>
+                        <li>• Dessert cups (30)</li>
+                        <li>• 50 donuts & 50 cookies</li>
+                        <li>• Meat pie</li>
+                        <li>• Setup decoration option</li>
+                    </ul>
+                    <button onclick="openOrder('Executive Corporate Luxury')" class="w-full py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
                 </div>
             </div>
         </div>
@@ -100,7 +215,7 @@
 
     <section id="about" class="max-w-7xl mx-auto px-6 py-32">
         <div class="flex flex-col md:flex-row gap-16 items-center">
-            <div class="w-full md:w-5/12 flex justify-center">
+            <div class="w-full md:w-5/12 flex justify-center order-first">
                 <div class="w-64 md:w-72 aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden shadow-2xl transition-all duration-1000 grayscale hover:grayscale-0">
                     <img src="IMG_0466.JPG.jpeg" class="w-full h-full object-cover" alt="Chiwendu Safra Adibua">
                 </div>
@@ -120,38 +235,55 @@
     <section id="masterclass" class="max-w-7xl mx-auto px-6 py-32 border-t border-black/5">
         <div class="grid md:grid-cols-2 gap-20 items-center">
             <div class="h-80 md:h-[500px] rounded-[48px] overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1556910111-71323716fb7a?q=80&w=2070" class="w-full h-full object-cover grayscale" alt="Culinary Class">
+                <img src="https://images.unsplash.com/photo-1556910111-71323716fb7a?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover grayscale" alt="Culinary Class">
             </div>
             <div>
                 <h2 class="luxury-font text-4xl md:text-5xl mb-8 uppercase tracking-widest">The Masterclass</h2>
-                <p class="text-sm opacity-60 leading-relaxed mb-10">Master the secrets of gourmet catering. Join the waitlist for our professional course launch.</p>
-                <button class="text-[10px] font-bold uppercase tracking-[0.3em] border-b-2 border-black pb-2">Join Waitlist</button>
+                <p class="text-sm opacity-60 leading-relaxed mb-10">Master the secrets of gourmet catering. Join the waitlist for our professional course launch. Learn high-end plating, flavor composition, and event management.</p>
+                <button class="text-[10px] font-bold uppercase tracking-[0.3em] border-b-2 border-black pb-2">Join the Waitlist</button>
             </div>
         </div>
     </section>
 
-    <section class="max-w-4xl mx-auto px-6 py-24 mb-32">
+    <section class="max-w-5xl mx-auto px-6 py-24 mb-32">
         <h2 class="luxury-font text-2xl mb-12 text-center tracking-widest uppercase opacity-80">Gourmet Add-Ons</h2>
         <div class="bg-white rounded-[40px] p-10 shadow-sm border border-black/5">
-            <div class="grid md:grid-cols-2 gap-x-16">
-                <div class="ios-item"><span>Extra Small Chops</span> <span class="opacity-20">›</span></div>
-                <div class="ios-item"><span>House-made Zobo</span> <span class="opacity-20">›</span></div>
-                <div class="ios-item"><span>Money Bouquet Upgrade</span> <span class="opacity-20">›</span></div>
-                <div class="ios-item"><span>Gourmet Soup Tubs</span> <span class="opacity-20">›</span></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12">
+                <div class="ios-item"><span>Extra Cupcake</span></div>
+                <div class="ios-item"><span>Extra Small Chops</span></div>
+                <div class="ios-item"><span>Extra Fried Rice Pack</span></div>
+                <div class="ios-item"><span>Extra Parfait</span></div>
+                <div class="ios-item"><span>Wine Upgrade</span></div>
+                <div class="ios-item"><span>Flowers / Teddy Bear</span></div>
+                <div class="ios-item"><span>Money Bouquet/Buffet</span></div>
+                <div class="ios-item"><span>Picture/Name Topper</span></div>
+                <div class="ios-item"><span>Zobo / Juice</span></div>
+                <div class="ios-item"><span>Chin Chin / Biscuits</span></div>
+                <div class="ios-item"><span>Coconut / Sardine Bread</span></div>
+                <div class="ios-item"><span>Cinnamon Bread</span></div>
+                <div class="ios-item"><span>Meat / Chicken Pie</span></div>
+                <div class="ios-item"><span>Sausage Roll / Burger</span></div>
+                <div class="ios-item"><span>Granola / Cake Parfait</span></div>
+                <div class="ios-item"><span>Puff Puff Mix</span></div>
+                <div class="ios-item"><span>Pepper Soup</span></div>
+                <div class="ios-item"><span>Soups (Banga, Egusi, Oha, etc)</span></div>
+                <div class="ios-item"><span>Coconut Rice</span></div>
+                <div class="ios-item"><span>Red Velvet Cake</span></div>
+                <div class="ios-item"><span>Smoothie / Yogurt</span></div>
+                <div class="ios-item"><span>Chocolates / Pringles</span></div>
+                <div class="ios-item"><span>Delivery Service Setup</span></div>
             </div>
         </div>
     </section>
 
     <div id="orderModal" class="fixed inset-0 z-[60] bg-black/70 backdrop-blur-md hidden items-center justify-center p-6">
         <div class="bg-white w-full max-w-sm rounded-[40px] overflow-hidden shadow-2xl relative">
-            
             <div id="successState" class="absolute inset-0 bg-white z-[70] flex-col items-center justify-center text-center p-10">
                 <div class="w-20 h-20 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6 text-4xl">✓</div>
                 <h3 class="luxury-font text-2xl mb-4">Request Sent</h3>
                 <p class="text-xs opacity-50 mb-8">Chef Safra is reviewing your order on WhatsApp now.</p>
                 <button onclick="closeOrder()" class="w-full bg-black text-white py-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Done</button>
             </div>
-
             <div class="bg-[#FAF9F6] p-8 border-b border-black/5 flex items-center gap-5">
                 <div class="w-12 h-12 rounded-full overflow-hidden border border-black/5">
                     <img src="IMG_0466.JPG.jpeg" class="w-full h-full object-cover" alt="Safra">
@@ -162,22 +294,22 @@
             <div class="p-10">
                 <form id="whatsappForm" class="space-y-4">
                     <input type="text" id="orderPackage" readonly class="w-full bg-transparent border-b border-black/10 py-2 text-[10px] font-bold uppercase tracking-widest outline-none">
-                    <input type="tel" id="userPhone" placeholder="Phone Number" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none focus:border-black">
-                    <input type="text" id="userAddress" placeholder="Delivery Address" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none focus:border-black">
-                    <textarea id="userNotes" placeholder="Any special notes?" class="w-full bg-transparent border-b border-black/10 py-2 text-sm h-16 outline-none resize-none focus:border-black"></textarea>
-                    <button type="submit" class="w-full bg-black text-white py-5 rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-xl mt-4">Message Chef</button>
+                    <input type="tel" id="userPhone" placeholder="Phone Number" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none">
+                    <input type="text" id="userAddress" placeholder="Delivery Address" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none">
+                    <textarea id="userNotes" placeholder="Special notes (e.g., Add Zobo)?" class="w-full bg-transparent border-b border-black/10 py-2 text-sm h-16 outline-none resize-none"></textarea>
+                    <button type="submit" class="w-full bg-black text-white py-5 rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-xl mt-4">Send to WhatsApp</button>
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        const CHEF_PHONE = "2349068937038"; // REPLACE WITH REAL NUMBER
+        const CHEF_PHONE = "2349068937038"; // Swap for real phone
 
         function handleReveal() {
             const section = document.getElementById('collections-section');
             section.classList.add('reveal-active');
-            document.getElementById('revealBtn').innerText = "Opening Menu...";
+            document.getElementById('revealBtn').innerText = "Scrolling to Menu...";
             setTimeout(() => { section.scrollIntoView({ behavior: 'smooth' }); }, 100);
         }
 
@@ -207,14 +339,9 @@
             const phone = document.getElementById('userPhone').value;
             const addr = document.getElementById('userAddress').value;
             const notes = document.getElementById('userNotes').value;
-            
-            const msg = `Hello Chef Safra! 👋\n\nI'm ordering the *${pkg}*.\n\nMy Details:\n📞 Phone: ${phone}\n📍 Address: ${addr}\n📝 Notes: ${notes}\n\nPlease confirm availability!`;
-            
+            const msg = `Hello Chef Safra! 👋\n\nOrder: *${pkg}*\n\nPhone: ${phone}\nAddress: ${addr}\nNotes: ${notes}`;
             document.getElementById('successState').classList.add('success-active');
-            
-            setTimeout(() => {
-                window.open(`https://wa.me/${CHEF_PHONE}?text=${encodeURIComponent(msg)}`);
-            }, 800);
+            setTimeout(() => { window.open(`https://wa.me/${CHEF_PHONE}?text=${encodeURIComponent(msg)}`); }, 800);
         }
     </script>
 </body>
