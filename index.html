@@ -7,131 +7,189 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-color: #FAF9F6; --accent: #1A1A1A; }
+        :root { --bg-color: #FAF9F6; }
         body { background-color: var(--bg-color); color: #1A1A1A; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; scroll-behavior: smooth; transition: background-color 0.8s ease; }
         .luxury-font { font-family: 'Playfair Display', serif; }
         .glass-nav { background: rgba(250, 249, 246, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.03); }
         
-        /* Tab Transitions */
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: iosFade 0.5s ease-out; }
-        @keyframes iosFade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-content.active { display: block; animation: iosFade 0.6s ease-out; }
+        @keyframes iosFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Package Cards & Glassmorphism */
-        .package-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.05); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .package-card:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+        .package-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.05); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .package-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); }
 
-        /* Color Vibe Themes */
         .theme-birthday { background-color: #FFF9E6 !important; }
         .theme-romance { background-color: #FFF5F5 !important; }
         .theme-corporate { background-color: #F0F4F8 !important; }
 
-        /* Custom Scrollbar for iOS feel */
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #D1D1D1; border-radius: 10px; }
     </style>
 </head>
 <body class="antialiased">
 
     <nav class="fixed top-0 w-full z-50 glass-nav px-6 md:px-12 py-5 flex justify-between items-center">
         <span class="luxury-font font-bold tracking-[0.3em] text-xl">SL</span>
-        <div class="flex gap-6 md:gap-10 text-[10px] font-medium uppercase tracking-[0.2em]">
+        <div class="flex gap-6 md:gap-10 text-[10px] font-bold uppercase tracking-[0.2em]">
             <a href="#collections" class="hover:opacity-50">Collections</a>
             <a href="#about" class="hover:opacity-50">About Safra</a>
             <a href="#academy" class="hover:opacity-50 text-[#C2410C]">The Academy</a>
         </div>
     </nav>
 
-    <header class="pt-48 pb-24 text-center px-4">
-        <h1 class="luxury-font text-4xl md:text-6xl font-bold uppercase tracking-[0.25em] mb-4">Safra Living</h1>
-        <p class="text-[12px] md:text-[14px] uppercase tracking-[0.5em] opacity-60 font-medium">The Home of Taste Cradle</p>
+    <header class="pt-48 pb-20 text-center px-4">
+        <h1 class="luxury-font text-5xl md:text-7xl font-bold uppercase tracking-[0.2em] mb-4">Safra Living</h1>
+        <p class="text-[12px] md:text-[15px] uppercase tracking-[0.5em] opacity-50 font-semibold">The Home of Taste Cradle</p>
     </header>
 
     <section class="max-w-7xl mx-auto px-6 mb-32">
-        <div class="relative h-[70vh] rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070" class="w-full h-full object-cover" alt="Authentic Cuisine">
-            <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center gap-6">
-                <a href="#collections" class="bg-white text-black px-10 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl">Explore The Collections</a>
+        <div class="relative h-[65vh] rounded-[40px] overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070" class="w-full h-full object-cover" alt="Safra Kitchen">
+            <div class="absolute inset-0 bg-black/20 flex flex-col items-center justify-center">
+                <a href="#collections" class="bg-white text-black px-12 py-5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-xl">Order A Collection</a>
             </div>
         </div>
     </section>
 
-    <section id="collections" class="max-w-7xl mx-auto px-6 py-24 bg-white/50 backdrop-blur-md rounded-[40px] mb-20 shadow-sm transition-colors duration-700">
-        <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-20 border-b border-black/5 pb-8">
-            <button onclick="openTab('birthday', 'theme-birthday')" class="tab-link luxury-font italic text-2xl opacity-30 hover:opacity-100 transition-all">The Golden Birthday</button>
-            <button onclick="openTab('romance', 'theme-romance')" class="tab-link luxury-font italic text-2xl opacity-30 hover:opacity-100 transition-all">The Love Flame</button>
-            <button onclick="openTab('corporate', 'theme-corporate')" class="tab-link luxury-font italic text-2xl opacity-30 hover:opacity-100 transition-all">The Elite Event</button>
+    <section id="collections" class="max-w-7xl mx-auto px-6 py-24 bg-white/40 backdrop-blur-md rounded-[50px] mb-20 transition-colors duration-1000">
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-24 border-b border-black/5 pb-10">
+            <button onclick="openTab('birthday', 'theme-birthday')" class="tab-link luxury-font italic text-2xl md:text-3xl opacity-30 hover:opacity-100 transition-all">The Golden Birthday</button>
+            <button onclick="openTab('romance', 'theme-romance')" class="tab-link luxury-font italic text-2xl md:text-3xl opacity-30 hover:opacity-100 transition-all">The Love Flame</button>
+            <button onclick="openTab('corporate', 'theme-corporate')" class="tab-link luxury-font italic text-2xl md:text-3xl opacity-30 hover:opacity-100 transition-all">The Elite Event</button>
         </div>
 
         <div id="birthday" class="tab-content active">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="package-card p-8 rounded-3xl">
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-700 mb-6">Birthday Cradle Box</h3>
-                    <ul class="text-[13px] space-y-3 opacity-80 mb-8">
-                        <li>• 5" Cake & 4 Cupcakes</li>
-                        <li>• Small Chops (10pcs)</li>
-                        <li>• 2 Donuts & Parfait</li>
-                        <li>• Premium Juice & Chocolates</li>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="package-card p-10 rounded-[35px]">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-800 mb-8">1. Birthday Cradle Box</h3>
+                    <ul class="text-[13px] space-y-4 opacity-70 mb-10">
+                        <li>• 4 Cupcakes</li>
+                        <li>• 5-inch Cake</li>
+                        <li>• Small Chops (Spring rolls, Samosa, Puff puff – 10pcs)</li>
+                        <li>• 2 Donuts</li>
+                        <li>• 1 Parfait cup</li>
+                        <li>• 1 Premium juice</li>
+                        <li>• Chocolate bars</li>
+                        <li>• Birthday card</li>
                     </ul>
-                    <button onclick="openOrder('Birthday Cradle Box')" class="w-full py-3 bg-amber-700/10 text-amber-900 rounded-xl text-[10px] font-bold uppercase tracking-widest">Order Now</button>
+                    <button onclick="openOrder('Birthday Cradle Box')" class="w-full py-4 bg-amber-800/10 text-amber-900 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-amber-800 hover:text-white transition-all">Select Package</button>
                 </div>
-                <div class="package-card p-8 rounded-3xl border-2 border-amber-400/20 relative">
-                    <span class="absolute -top-3 left-8 bg-amber-400 text-white text-[8px] px-3 py-1 rounded-full font-bold uppercase">Customer Favorite</span>
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-600 mb-6 mt-2">Silver Cradle Box</h3>
-                    <ul class="text-[13px] space-y-3 opacity-80 mb-8">
-                        <li>• 6" Cake & 6 Cupcakes</li>
+
+                <div class="package-card p-10 rounded-[35px] border-2 border-amber-400/30 relative">
+                    <span class="absolute -top-4 left-10 bg-amber-400 text-white text-[8px] px-4 py-1.5 rounded-full font-bold uppercase tracking-widest">Best Seller ⭐</span>
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-600 mb-8 mt-2">2. Silver Birthday Cradle</h3>
+                    <ul class="text-[13px] space-y-4 opacity-70 mb-10">
+                        <li>• 6 Cupcakes & 6-inch Cake</li>
                         <li>• Small Chops (20pcs)</li>
-                        <li>• Fried Rice & Chicken</li>
-                        <li>• Balloons & Money Bouquet</li>
+                        <li>• Fried Rice with Chicken (1 pack)</li>
+                        <li>• 2 Parfait cups & 2 Premium juices</li>
+                        <li>• Cookies & Chocolate box</li>
+                        <li>• Birthday balloons</li>
+                        <li>• Money bouquets</li>
                     </ul>
-                    <button onclick="openOrder('Silver Birthday Cradle')" class="w-full py-3 bg-amber-500 text-white rounded-xl text-[10px] font-bold uppercase tracking-widest">Order Now</button>
+                    <button onclick="openOrder('Silver Birthday Cradle Box')" class="w-full py-4 bg-amber-500 text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-lg hover:bg-amber-600">Select Package</button>
                 </div>
-                <div class="package-card p-8 rounded-3xl bg-black text-white">
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-400 mb-6">Gold Luxury Cradle</h3>
-                    <ul class="text-[13px] space-y-3 opacity-70 mb-8">
-                        <li>• 8" 2-Step Luxury Cake</li>
-                        <li>• Large Chops Platter (30+)</li>
-                        <li>• Full Meal + 2 Dessert Jars</li>
-                        <li>• Wine, Flowers & Money Buffet</li>
+
+                <div class="package-card p-10 rounded-[35px] bg-black text-white">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-400 mb-8">3. Gold Luxury Birthday</h3>
+                    <ul class="text-[13px] space-y-4 opacity-80 mb-10">
+                        <li>• 8 Cupcakes</li>
+                        <li>• 7/8 inch 2-Step Cake</li>
+                        <li>• Small Chops Platter (30pcs+)</li>
+                        <li>• Fried Rice + Chicken + Plantain</li>
+                        <li>• 2 Dessert jars & Parfait</li>
+                        <li>• Premium juice or Wine</li>
+                        <li>• Imported chocolates & Fresh flowers</li>
+                        <li>• Large Money Buffet</li>
+                        <li>• Luxury decoration</li>
                     </ul>
-                    <button onclick="openOrder('Gold Luxury Birthday')" class="w-full py-3 bg-white text-black rounded-xl text-[10px] font-bold uppercase tracking-widest">Order Now</button>
+                    <button onclick="openOrder('Gold Luxury Birthday Cradle Box')" class="w-full py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-amber-400 transition-all">Select Package</button>
                 </div>
             </div>
         </div>
 
         <div id="romance" class="tab-content">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="package-card p-8 rounded-3xl">
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-800 mb-6">Sweetheart Romance Tray</h3>
-                    <p class="text-[13px] opacity-70 mb-4">4 Cupcakes, Mini Cake, Small Chops, Red Rose & Love Card.</p>
-                    <button onclick="openOrder('Sweetheart Romance Tray')" class="text-[10px] font-bold uppercase underline tracking-widest">Order Tray</button>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="package-card p-10 rounded-[35px]">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-700 mb-8">1. Sweetheart Romance Tray</h3>
+                    <ul class="text-[13px] space-y-4 opacity-70 mb-10">
+                        <li>• 4 Cupcakes & Mini Cake</li>
+                        <li>• Small Chops (10–15pcs)</li>
+                        <li>• 1 Parfait</li>
+                        <li>• Choco Strawberries or Brownies</li>
+                        <li>• Premium Juice & Red Rose</li>
+                        <li>• Love message card</li>
+                        <li>• Small money bouquet</li>
+                    </ul>
+                    <button onclick="openOrder('Sweetheart Romance Tray')" class="w-full py-4 bg-red-50 text-red-700 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
                 </div>
-                <div class="package-card p-8 rounded-3xl border border-red-200">
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-800 mb-6">Lovers Delight</h3>
-                    <p class="text-[13px] opacity-70 mb-4">6" Cake, Combo Rice & Chicken, Teddy Bear, Candle & Money Bouquet.</p>
-                    <button onclick="openOrder('Lovers Delight Package')" class="text-[10px] font-bold uppercase underline tracking-widest">Order Package</button>
+
+                <div class="package-card p-10 rounded-[35px] border border-red-100">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-700 mb-8">2. Lovers Delight</h3>
+                    <ul class="text-[13px] space-y-4 opacity-70 mb-10">
+                        <li>• 6 Cupcakes & 6-inch Cake</li>
+                        <li>• Small Chops (20pcs)</li>
+                        <li>• Fried & Jollof Rice + Chicken + Salad</li>
+                        <li>• 2 Parfait cups</li>
+                        <li>• Premium juice or Wine</li>
+                        <li>• Teddy bear & Scented candle</li>
+                        <li>• Medium money bouquet</li>
+                    </ul>
+                    <button onclick="openOrder('Lovers Delight Package')" class="w-full py-4 bg-red-600 text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-lg">Select Package</button>
                 </div>
-                <div class="package-card p-8 rounded-3xl bg-red-900 text-white">
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-200 mb-6">Royal Romance Luxury</h3>
-                    <p class="text-[13px] opacity-70 mb-4">7" Cake, Premium Wine, Chocolate Strawberries, Flowers & Large Money Buffet.</p>
-                    <button onclick="openOrder('Royal Romance')" class="text-[10px] font-bold uppercase underline tracking-widest text-white">Order Luxury</button>
+
+                <div class="package-card p-10 rounded-[35px] bg-red-950 text-white">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-300 mb-8">3. Royal Romance Luxury</h3>
+                    <ul class="text-[13px] space-y-4 opacity-80 mb-10">
+                        <li>• 8 Cupcakes & 7-inch Cake</li>
+                        <li>• Premium wine or Exotic juice</li>
+                        <li>• Choco Strawberries & Fresh flowers</li>
+                        <li>• Teddy bear & Large money buffet</li>
+                        <li>• Tray decoration</li>
+                    </ul>
+                    <button onclick="openOrder('Royal Romance Luxury Package')" class="w-full py-4 bg-white text-red-950 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Select Package</button>
                 </div>
             </div>
         </div>
 
         <div id="corporate" class="tab-content">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="package-card p-8 rounded-3xl">
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] mb-6">Classic Party (10-20)</h3>
-                    <p class="text-[13px] opacity-70">12 Cupcakes, 50 Small Chops, Rice Tray, 12 Cookies & Juice.</p>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="package-card p-10 rounded-[35px]">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] mb-8">1. Classic Party Food</h3>
+                    <ul class="text-[13px] space-y-4 opacity-70 mb-10">
+                        <li>• 1 Medium Cake & 12 Cupcakes</li>
+                        <li>• Small Chops (50 pcs)</li>
+                        <li>• Fried or Jollof Rice Tray</li>
+                        <li>• 12 Cookies & 10 Mini Banana Bread</li>
+                        <li>• 12 Juice packs</li>
+                    </ul>
+                    <button onclick="openOrder('Classic Party Food Package')" class="w-full py-4 border border-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire Scale</button>
                 </div>
-                <div class="package-card p-8 rounded-3xl">
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] mb-6">Premium Event (20-50)</h3>
-                    <p class="text-[13px] opacity-70">24 Cupcakes, 100 Small Chops, Jollof & Fried Rice Trays, 24 Donuts.</p>
+
+                <div class="package-card p-10 rounded-[35px]">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] mb-8">2. Premium Event Catering</h3>
+                    <ul class="text-[13px] space-y-4 opacity-70 mb-10">
+                        <li>• 2 Large Cakes & 24 Cupcakes</li>
+                        <li>• Small Chops (100pcs)</li>
+                        <li>• Fried & Jollof Rice Trays</li>
+                        <li>• Chicken (20pcs) & 24 Donuts</li>
+                        <li>• 10 Dessert Cups & 24 Juices/Wine</li>
+                        <li>• Branded Packaging & Parfait</li>
+                    </ul>
+                    <button onclick="openOrder('Premium Event Catering Package')" class="w-full py-4 border border-black rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire Scale</button>
                 </div>
-                <div class="package-card p-8 rounded-3xl bg-slate-900 text-white">
-                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] mb-6">Executive Luxury (50-100)</h3>
-                    <p class="text-[13px] opacity-70">50 Cupcakes, 200 Small Chops, Full Rice Buffet, Dessert Cups & Decor Setup.</p>
+
+                <div class="package-card p-10 rounded-[35px] bg-slate-900 text-white">
+                    <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] mb-8">3. Executive Corporate</h3>
+                    <ul class="text-[13px] space-y-4 opacity-80 mb-10">
+                        <li>• 3 Large Cakes & 50 Cupcakes</li>
+                        <li>• Small Chops (200pcs)</li>
+                        <li>• Rice + Jollof + Sides + 50pcs Chicken</li>
+                        <li>• 30 Dessert cups, 50 Donuts, 50 Cookies</li>
+                        <li>• Meat Pie & Setup Decoration</li>
+                    </ul>
+                    <button onclick="openOrder('Executive Corporate Luxury Package')" class="w-full py-4 bg-white text-slate-900 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Inquire Scale</button>
                 </div>
             </div>
         </div>
@@ -140,85 +198,114 @@
     <section id="about" class="max-w-7xl mx-auto px-6 py-32">
         <div class="grid md:grid-cols-2 gap-16 items-center">
             <div class="order-2 md:order-1">
-                <h2 class="luxury-font text-4xl mb-6">Safra Adibua</h2>
-                <p class="text-[11px] uppercase tracking-[0.3em] text-[#C2410C] font-bold mb-8">Founder & Head Chef</p>
-                <div class="space-y-6 text-sm leading-relaxed opacity-70">
-                    <p>Safra Adibua is the visionary behind Taste Cradle, where culinary precision meets soulful hospitality. With a background rooted in the art of professional pastry and gourmet event catering, she has transformed Safra Living into a sanctuary for food lovers.</p>
-                    <p>Beyond the kitchen, Safra is an educator. Through her Academy, she curates the secrets of the "perfect bite," teaching aspiring chefs the discipline of plating, the science of small chops, and the business of luxury catering.</p>
+                <h2 class="luxury-font text-5xl mb-6">Safra Adibua</h2>
+                <p class="text-[11px] uppercase tracking-[0.4em] text-[#C2410C] font-bold mb-10">Founder & Culinary Director</p>
+                <div class="space-y-6 text-sm md:text-base leading-relaxed opacity-70">
+                    <p>Safra Adibua is the visionary behind Taste Cradle, where the "art of the bite" is perfected. With a relentless focus on premium presentation and authentic flavor, Safra has built a reputation for creating culinary experiences that linger long after the last crumb.</p>
+                    <p>Specializing in luxury gift collections and corporate catering, her work is defined by a "no-nonsense" approach to quality. Through Safra Living, she bridges the gap between high-end pastry arts and the comfort of home-cooked excellence.</p>
                 </div>
             </div>
             <div class="order-1 md:order-2">
-                <div class="aspect-[4/5] bg-gray-100 rounded-2xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000">
+                <div class="aspect-[4/5] bg-gray-100 rounded-[40px] overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000">
                     <img src="IMG_0466.jpg" class="w-full h-full object-cover" alt="Chef Safra Adibua">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="academy" class="max-w-7xl mx-auto px-6 py-32 border-t border-black/5 bg-[#FDFCFB]">
+    <section id="academy" class="max-w-7xl mx-auto px-6 py-32 border-t border-black/5">
         <div class="grid md:grid-cols-2 gap-20 items-center">
-            <div class="h-[500px] rounded-2xl shadow-xl overflow-hidden">
+            <div class="h-[550px] rounded-[40px] shadow-xl overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070" class="w-full h-full object-cover grayscale" alt="Culinary Training">
             </div>
             <div>
                 <h2 class="luxury-font text-5xl mb-8 uppercase tracking-widest">The Academy</h2>
-                <p class="text-lg opacity-60 leading-relaxed mb-10">The videos are currently in production, but the curriculum is set. Master the art of the cradle.</p>
+                <p class="text-lg opacity-60 leading-relaxed mb-10">Master the craft of Taste Cradle. While our video courses are currently in post-production, the curriculum is designed to take you from a home cook to a plating professional.</p>
                 <ul class="space-y-6 mb-12">
                     <li class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em]"><span class="w-2 h-2 bg-[#C2410C] rounded-full"></span> Professional Pastry Arts</li>
                     <li class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em]"><span class="w-2 h-2 bg-[#C2410C] rounded-full"></span> The Art of Small Chops</li>
-                    <li class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em]"><span class="w-2 h-2 bg-[#C2410C] rounded-full"></span> Plating & Presentation</li>
+                    <li class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em]"><span class="w-2 h-2 bg-[#C2410C] rounded-full"></span> Gourmet Plating Mastery</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="addons" class="max-w-4xl mx-auto px-6 py-20 bg-black text-white rounded-[40px] mb-32">
-        <h2 class="luxury-font text-2xl mb-12 text-center text-amber-400 tracking-widest">The Add-On Menu</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-12 text-[9px] font-medium uppercase tracking-widest opacity-80">
-            <div>• Extra Small Chops</div>
-            <div>• Money Buffet Upgrade</div>
-            <div>• Zobo & Smoothies</div>
-            <div>• Gourmet Soups</div>
-            <div>• Meat Pies & Burgers</div>
-            <div>• Flowers & Teddy Bears</div>
-            <div>• Coconut/Sardine Bread</div>
-            <div>• Custom Name Toppers</div>
-            <div>• Parfait Cups</div>
-            <div>• Cake Parfait</div>
-            <div>• Pepper Soup</div>
-            <div>• Puff Puff Mix</div>
+    <section id="addons" class="max-w-6xl mx-auto px-6 py-24 bg-black text-white rounded-[50px] mb-32">
+        <h2 class="luxury-font text-3xl mb-16 text-center text-amber-400 tracking-widest uppercase">The Full Add-On Menu</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-12 text-[10px] font-medium uppercase tracking-[0.15em] opacity-80">
+            <div class="space-y-4">
+                <p>• Extra Cupcake</p>
+                <p>• Extra Small Chops</p>
+                <p>• Extra Fried Rice Pack</p>
+                <p>• Extra Parfait</p>
+            </div>
+            <div class="space-y-4">
+                <p>• Wine Upgrade</p>
+                <p>• Flowers & Teddy Bear</p>
+                <p>• Money Bouquet Upgrade</p>
+                <p>• Money Buffet Upgrade</p>
+            </div>
+            <div class="space-y-4">
+                <p>• Picture/Name Topper</p>
+                <p>• Delivery Service</p>
+                <p>• House-made Zobo</p>
+                <p>• Chin Chin & Granola</p>
+            </div>
+            <div class="space-y-4">
+                <p>• Coconut/Sardine Bread</p>
+                <p>• Meat/Chicken Pie</p>
+                <p>• Sausage Roll & Burger</p>
+                <p>• Pepper Soup</p>
+            </div>
+        </div>
+        
+        <div class="mt-20 pt-10 border-t border-white/10">
+            <h4 class="text-amber-400 text-[10px] mb-8 tracking-widest text-center">GOURMET SOUP TUBS & SPECIALS</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-[9px] text-center opacity-60">
+                <span>BANGA SOUP</span>
+                <span>EGUSI SOUP</span>
+                <span>DRAW SOUP</span>
+                <span>OHA SOUP</span>
+                <span>VEGETABLE SOUP</span>
+                <span>COCONUT RICE</span>
+                <span>RED VELVET CAKE</span>
+                <span>CINNAMON BREAD</span>
+                <span>SMOOTHIES & YOGURT</span>
+            </div>
         </div>
     </section>
 
-    <div id="orderModal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-md hidden items-center justify-center p-6">
-        <div class="bg-white w-full max-w-md rounded-[32px] overflow-hidden shadow-2xl">
-            <div class="bg-[#FAF9F6] p-6 border-b border-black/5 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full overflow-hidden">
+    <div id="orderModal" class="fixed inset-0 z-[60] bg-black/70 backdrop-blur-md hidden items-center justify-center p-6">
+        <div class="bg-white w-full max-w-md rounded-[40px] overflow-hidden shadow-2xl transition-all">
+            <div class="bg-[#FAF9F6] p-8 border-b border-black/5 flex items-center gap-5">
+                <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
                     <img src="IMG_0466.jpg" class="w-full h-full object-cover" alt="Safra">
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold uppercase tracking-tight">Chat with Safra</h4>
-                    <p class="text-[10px] opacity-50">Online to take your order</p>
+                    <h4 class="text-[12px] font-bold uppercase tracking-tighter">Chef Safra Adibua</h4>
+                    <p class="text-[10px] opacity-40">Ready to take your order</p>
                 </div>
-                <button onclick="closeOrder()" class="ml-auto text-xl">&times;</button>
+                <button onclick="closeOrder()" class="ml-auto text-3xl opacity-20 hover:opacity-100">&times;</button>
             </div>
-            <div class="p-8">
-                <div class="bg-gray-100 rounded-2xl rounded-tl-none p-4 mb-6 text-sm">
-                    "Hello! I'm so excited to prepare this for you. Which package are we looking at, and do you have any special notes for the kitchen?"
+            <div class="p-10">
+                <div class="bg-gray-100 rounded-[25px] rounded-tl-none p-5 mb-8 text-[13px] leading-relaxed italic">
+                    "Welcome to Safra Living! Let me know which package you've chosen, and if you'd like to add any of our famous soups or breads to your order."
                 </div>
-                <form id="whatsappForm" class="space-y-4">
-                    <input type="text" id="orderPackage" readonly class="w-full bg-transparent border-b border-black/10 py-2 text-xs font-bold uppercase tracking-widest">
-                    <input type="tel" placeholder="Your Phone Number" required class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none focus:border-black">
-                    <textarea placeholder="Any extras or special instructions?" class="w-full bg-transparent border-b border-black/10 py-2 text-sm outline-none focus:border-black resize-none h-20"></textarea>
-                    <button type="submit" class="w-full bg-black text-white py-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Send to Chef via WhatsApp</button>
+                <form id="whatsappForm" class="space-y-6">
+                    <input type="text" id="orderPackage" readonly class="w-full bg-transparent border-b border-black/10 py-3 text-xs font-bold uppercase tracking-widest">
+                    <input type="tel" id="userPhone" placeholder="Your Phone Number" required class="w-full bg-transparent border-b border-black/10 py-3 text-sm outline-none focus:border-black">
+                    <textarea id="userNotes" placeholder="Any add-ons or special notes?" class="w-full bg-transparent border-b border-black/10 py-3 text-sm outline-none focus:border-black resize-none h-24"></textarea>
+                    <button type="submit" class="w-full bg-black text-white py-5 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] shadow-xl hover:bg-green-700 transition-colors">Confirm & Message Chef</button>
                 </form>
             </div>
         </div>
     </div>
 
     <script>
+        // REPLACE THIS WITH YOUR NUMBER
+        const CHEF_PHONE = "2349068937038"; 
+
         function openTab(tabId, themeClass) {
-            // Tab Logic
             let contents = document.querySelectorAll('.tab-content');
             let links = document.querySelectorAll('.tab-link');
             contents.forEach(content => content.classList.remove('active'));
@@ -227,27 +314,29 @@
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.remove('opacity-30');
 
-            // Theme/Color Vibe Logic
             const section = document.getElementById('collections');
             section.classList.remove('theme-birthday', 'theme-romance', 'theme-corporate');
             if(themeClass) section.classList.add(themeClass);
         }
 
         function openOrder(packageName) {
-            document.getElementById('orderPackage').value = "SELECTED: " + packageName;
+            document.getElementById('orderPackage').value = "Package: " + packageName;
             document.getElementById('orderModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeOrder() {
             document.getElementById('orderModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
-        // WhatsApp Integration
         document.getElementById('whatsappForm').onsubmit = function(e) {
             e.preventDefault();
             const pkg = document.getElementById('orderPackage').value;
-            const msg = "Hi Chef Safra! I'd like to order the " + pkg;
-            window.open(`https://wa.me/YOUR_NUMBER_HERE?text=${encodeURIComponent(msg)}`);
+            const phone = document.getElementById('userPhone').value;
+            const notes = document.getElementById('userNotes').value;
+            const msg = `Hello Chef Safra! 👋\n\nI'm ordering the *${pkg}*.\n\nMy Details:\n📞 Phone: ${phone}\n📝 Notes: ${notes}\n\nPlease confirm availability!`;
+            window.open(`https://wa.me/${CHEF_PHONE}?text=${encodeURIComponent(msg)}`);
         }
     </script>
 </body>
